@@ -1,0 +1,13 @@
+web:
+  build: .
+  ports:
+   - "9000:9000"
+   - "8080:8080"
+  volumes:
+   - .:/code
+  links:
+   - mongo
+
+mongo:
+  image: mongo
+
