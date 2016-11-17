@@ -5,7 +5,14 @@ export ZSH=/Users/mitch/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cobalt2"
+#ZSH_THEME="cobalt2"
+#ZSH_THEME="gnzh"
+#ZSH_THEME="kolo"
+ZSH_THEME="frontcube"
+#ZSH_THEME="random"
+
+setopt autolist
+unsetopt menucomplete
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -85,5 +92,3 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR=~/.nvm
 . $(brew --prefix nvm)/nvm.sh
-
-
