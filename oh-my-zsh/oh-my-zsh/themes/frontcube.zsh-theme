@@ -1,4 +1,4 @@
-local rvm="%{$fg[green]%}[$(rvm-prompt i v g)]%{$reset_color%}"
+# local rvm="%{$fg[green]%}[$(rvm-prompt i v g)]%{$reset_color%}"
 
 PROMPT='
 %{$fg_bold[gray]%}%~%{$fg_bold[blue]%}%{$fg_bold[blue]%} % %{$reset_color%}
