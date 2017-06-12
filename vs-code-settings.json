@@ -1,0 +1,86 @@
+// Version 1.13
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.tabSize": 2,
+  "TodoParser": {
+    // "exclude": ["cpp", "c"],
+    // "include": ["js"],
+    "folderExclude": ["node_modules", ".vscode"],
+    // "only": ["sub-folder/sub-sub-folder"],
+    "markers": ["rsm: temp debug", "TODO"],
+    "autoDefaultMarkers": true
+  },
+  "workbench.welcome.enabled": false,
+  "[markdown]": {
+    "editor.quickSuggestions": false
+  },
+  "debug.inlineValues": true,
+  "python.pythonPath": "python3",
+  "[python]": {
+    "editor.useTabStops": true,
+    "editor.tabSize": 4
+  },
+  // "files.autoSave": "onWindowChange"
+  "files.autoSave": "onWindowChange",
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 120,
+  "window.zoomLevel": 0,
+  "python.workspaceSymbols.enabled": false,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.minimap.enabled": true,
+  // "javascript.validate.enable": false,
+  "python.linting.enabled": false,
+  "files.associations": {
+    "**/server/**/*.js": "javascript",
+    "**/client/src/**/*.js": "javascriptreact"
+  },
+  "workbench.colorTheme": "Solarized Dark",
+  "editor.rulers": [
+    120
+  ],
+  "workbench.colorCustomizations": {
+    "editor.background": "#000000",
+    "editor.selectionBackground": "#4A080C",
+    "editor.lineHighlightBackground": "#2A1B22",
+    "editorCursor.foreground": "#FFFCF0"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "dump": true,
+    "dump_prod": true,
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "search.exclude": {
+    ".idea": true,
+    "dist": true,
+    "data": true,
+    "dump": true,
+    "client/build": true,
+    "server/build": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "dist/**": true,
+    "build/**": true
+  },
+  // slows down editor switching when tons of hints show up
+  "editor.parameterHints": true,
+  "editor.snippetSuggestions": "top",
+  // this was making it hard for me to navigate to the implementation of library code in node_modules...
+  // "typescript.disableAutomaticTypeAcquisition": false,
+  "prettier.printWidth": 120,
+  "prettier.jsxBracketSameLine": true,
+  // "typescript.check.npmIsInstalled": false,
+  "editor.dragAndDrop": false,
+  "editor.multiCursorModifier": "alt",
+  "emmet.useNewEmmet": true,
+  "editor.renderIndentGuides": false
+  // "typescript.check.tscVersion": false
+}
