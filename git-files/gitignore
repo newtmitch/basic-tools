@@ -34,6 +34,7 @@ dist
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
+.idea/dataSources/
 .idea/dataSources.xml
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
