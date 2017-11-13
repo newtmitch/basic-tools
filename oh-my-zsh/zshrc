@@ -8,8 +8,9 @@ export ZSH=/Users/mitch/.oh-my-zsh
 #ZSH_THEME="cobalt2"
 #ZSH_THEME="gnzh"
 #ZSH_THEME="kolo"
-ZSH_THEME="frontcube"
+#ZSH_THEME="frontcube"
 #ZSH_THEME="random"
+ZSH_THEME="kennethreitz"
 
 setopt autolist
 unsetopt menucomplete
@@ -60,7 +61,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Users/mitch/.nvm/versions/node/v6.2.0/bin:/Users/mitch/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+export PATH="$PATH:/Users/mitch/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,6 +90,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias bfg="java -jar /Users/mitch/Dev/basic-tools/bfg-1.12.14.jar"
 
 export NVM_DIR=~/.nvm
 . $(brew --prefix nvm)/nvm.sh
+
+# thefuck
+eval "$(thefuck --alias)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
