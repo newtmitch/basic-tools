@@ -1,0 +1,11 @@
+windows:
+  - name: sample-three-panes
+    root: ~/Dev
+    layout: tiled
+    # layout: double-main-horizontal
+    panes:
+      - cd server
+      - cd client
+      - echo
+      - docker ps -a
+      
