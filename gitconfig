@@ -10,6 +10,9 @@
 
 [alias]
     graph = !"git log --graph --pretty=oneline --abbrev-commit"
+    graphfile = !"git log --graph --pretty=oneline --abbrev-commit --stat"
+    grapha = !"git log --all --graph --pretty=oneline --abbrev-commit"
+    graphfilea = !"git log --all --graph --pretty=oneline --abbrev-commit --stat"
     allgraph = !"git graph1"
     graph1 = !"git graph1-specific --all"
     graph2 = !"git graph2-specific --all"
