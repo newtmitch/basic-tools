@@ -14,10 +14,14 @@
     grapha = !"git log --all --graph --pretty=oneline --abbrev-commit"
     graphfilea = !"git log --all --graph --pretty=oneline --abbrev-commit --stat"
     allgraph = !"git graph1"
-    graph1 = !"git graph1-specific --all"
-    graph2 = !"git graph2-specific --all"
-    graph3 = !"git graph3-specific --all"
+    grapha1 = !"git graph1-specific --all"
+    grapha2 = !"git graph2-specific --all"
+    grapha3 = !"git graph3-specific --all"
+    graph1 = !"git graph1-specific"
+    graph2 = !"git graph2-specific"
+    graph3 = !"git graph3-specific"
 
+    # graph specifics (pass in "-all" for all branches)
     graph1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
     graph2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
     graph3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
