@@ -1,0 +1,118 @@
+
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [40, 40]
+    rows: [13, 13, 4]
+  refreshInterval: 1
+  mods:
+    # GIT
+    git:
+      commitCount: 10
+      commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
+      dateFormat: "%H:%M %d %b %y"
+      enabled: true
+      position:
+        top: 0
+        left: 0
+        height: 3
+        width: 5
+      refreshInterval: 8
+      repositories:
+      - "/Users/mitch/Dev/titanhire/titanhire-platform"
+      - "/Users/mitch/Dev/titanhire/suited-services"      
+    # GITHUB
+    github:
+      apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
+      baseURL: ""
+      enabled: true
+      enableStatus: true
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 5
+      refreshInterval: 300
+      repositories:
+        titanhire-platform: "TitanHire"
+        suited-services: "TitanHire"
+      uploadURL: ""
+      username: "newtmitch"
+    # Heroku
+    cmdrunner:
+      args: ["pipelines:diff", "-a", "wsp-dev"]
+      cmd: "heroku"
+      enabled: true
+      position:
+        top: 3
+        left: 5
+        height: 1
+        width: 5
+      refreshInterval: 30
+    # CircleCI
+    circleci:
+      apiKey: "b1c34a555f5e363b5441618959269820df7e7a8d"
+      enabled: true
+      position:
+        top: 0
+        left: 5
+        height: 3
+        width: 5
+    refreshInterval: 30
+    # DEFAULTS
+    clocks:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: false
+      locations:
+        Avignon: "Europe/Paris"
+        Barcelona: "Europe/Madrid"
+        Dubai: "Asia/Dubai"
+        Vancouver: "America/Vancouver"
+        Toronto: "America/Toronto"
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+    security:
+      enabled: false
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 3600
+    status:
+      enabled: false
+      position:
+        top: 0
+        left: 3
+        height: 1
+        width: 2
+      refreshInterval: 1
+    system:
+      enabled: false
+      position:
+        top: 2
+        left: 3
+        height: 1
+        width: 1
+      refreshInterval: 3600
+    textfile:
+      enabled: false
+      filePath: "~/.config/wtf/config.yml"
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 30
