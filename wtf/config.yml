@@ -35,7 +35,7 @@ wtf:
         top: 3
         left: 0
         height: 1
-        width: 5
+        width: 3
       refreshInterval: 300
       repositories:
         titanhire-platform: "TitanHire"
@@ -49,9 +49,9 @@ wtf:
       enabled: true
       position:
         top: 3
-        left: 5
+        left: 3
         height: 1
-        width: 5
+        width: 7
       refreshInterval: 30
     # CircleCI
     circleci:
