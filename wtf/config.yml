@@ -6,12 +6,14 @@ wtf:
       focused: orange
       normal: gray
   grid:
-    columns: [40, 40]
-    rows: [13, 13, 4]
+    columns: [120, 100]
+    rows: [18, 18, 13]
   refreshInterval: 1
   mods:
     # GIT
-    git:
+    gitstatus:
+      title: "Git Status"
+      type: git
       commitCount: 10
       commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
       dateFormat: "%H:%M %d %b %y"
@@ -19,26 +21,44 @@ wtf:
       position:
         top: 0
         left: 0
-        height: 3
-        width: 5
+        height: 1
+        width: 1
       refreshInterval: 8
       repositories:
       - "/Users/mitch/Dev/titanhire/titanhire-platform"
-      - "/Users/mitch/Dev/titanhire/suited-services"      
+      - "/Users/mitch/Dev/titanhire/suited-services"
     # GITHUB
-    github:
+    github-platform:
+      type: github
+      title: "Platform"
       apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
       baseURL: ""
       enabled: true
       enableStatus: true
       position:
-        top: 3
-        left: 0
+        top: 0
+        left: 1
         height: 1
-        width: 3
+        width: 1
       refreshInterval: 300
       repositories:
         titanhire-platform: "TitanHire"
+      uploadURL: ""
+      username: "newtmitch"
+    github-services:
+      type: github
+      title: "Services"
+      apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
+      baseURL: ""
+      enabled: true
+      enableStatus: true
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 300
+      repositories:
         suited-services: "TitanHire"
       uploadURL: ""
       username: "newtmitch"
@@ -48,71 +68,42 @@ wtf:
       cmd: "heroku"
       enabled: true
       position:
-        top: 3
-        left: 3
+        top: 2
+        left: 0
         height: 1
-        width: 7
+        width: 1
       refreshInterval: 30
     # CircleCI
     circleci:
       apiKey: "b1c34a555f5e363b5441618959269820df7e7a8d"
       enabled: true
       position:
-        top: 0
-        left: 5
-        height: 3
-        width: 5
+        top: 1
+        left: 0
+        height: 1
+        width: 1
     refreshInterval: 30
+    #
     # DEFAULTS
+    #
     clocks:
       colors:
         rows:
           even: "lightblue"
           odd: "white"
-      enabled: false
+      enabled: true
+      timeFormat: 15:04:05 MST 2006
       locations:
-        Avignon: "Europe/Paris"
-        Barcelona: "Europe/Madrid"
-        Dubai: "Asia/Dubai"
-        Vancouver: "America/Vancouver"
-        Toronto: "America/Toronto"
-      position:
-        top: 3
-        left: 0
-        height: 1
-        width: 1
-      refreshInterval: 15
-      sort: "alphabetical"
-    security:
-      enabled: false
-      position:
-        top: 1
-        left: 0
-        height: 1
-        width: 1
-      refreshInterval: 3600
-    status:
-      enabled: false
-      position:
-        top: 0
-        left: 3
-        height: 1
-        width: 2
-      refreshInterval: 1
-    system:
-      enabled: false
+        # From https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        UTC: "Etc/UTC"
+        New York: "America/New York"
+        Austin: "America/Chicago"
+        Los Angeles: "America/Los Angeles"
       position:
         top: 2
-        left: 3
-        height: 1
-        width: 1
-      refreshInterval: 3600
-    textfile:
-      enabled: false
-      filePath: "~/.config/wtf/config.yml"
-      position:
-        top: 1
         left: 1
         height: 1
         width: 1
-      refreshInterval: 30
+      refreshInterval: 15
+      # Valid options are: alphabetical, chronological
+      sort: "chronological"
