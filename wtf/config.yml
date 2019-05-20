@@ -6,13 +6,13 @@ wtf:
       focused: orange
       normal: gray
   grid:
-    columns: [120, 100]
-    rows: [18, 18, 13]
+    columns: [90, 30, 100]
+    rows: [14, 13, 13, 9]
   refreshInterval: 1
   mods:
     # GIT
-    gitstatus:
-      title: "Git Status"
+    gitstatus-platform:
+      title: "Git Status - platform"
       type: git
       commitCount: 10
       commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
@@ -22,22 +22,36 @@ wtf:
         top: 0
         left: 0
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 8
       repositories:
       - "/Users/mitch/Dev/titanhire/titanhire-platform"
+    gitstatus-services:
+      title: "Git Status - services"
+      type: git
+      commitCount: 10
+      commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
+      dateFormat: "%H:%M %d %b %y"
+      enabled: true
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 8
+      repositories:
       - "/Users/mitch/Dev/titanhire/suited-services"
     # GITHUB
     github-platform:
       type: github
-      title: "Platform"
+      title: "GH Platform"
       apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
       baseURL: ""
       enabled: true
       enableStatus: true
       position:
         top: 0
-        left: 1
+        left: 2
         height: 1
         width: 1
       refreshInterval: 300
@@ -47,21 +61,31 @@ wtf:
       username: "newtmitch"
     github-services:
       type: github
-      title: "Services"
+      title: "GH Services"
       apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
       baseURL: ""
       enabled: true
       enableStatus: true
       position:
         top: 1
-        left: 1
+        left: 2
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 300
       repositories:
         suited-services: "TitanHire"
       uploadURL: ""
       username: "newtmitch"
+    # CircleCI
+    circleci:
+      apiKey: "b1c34a555f5e363b5441618959269820df7e7a8d"
+      enabled: true
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 1
+    refreshInterval: 30
     # Heroku
     cmdrunner:
       args: ["pipelines:diff", "-a", "wsp-dev"]
@@ -71,21 +95,9 @@ wtf:
         top: 2
         left: 0
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 30
-    # CircleCI
-    circleci:
-      apiKey: "b1c34a555f5e363b5441618959269820df7e7a8d"
-      enabled: true
-      position:
-        top: 1
-        left: 0
-        height: 1
-        width: 1
-    refreshInterval: 30
-    #
-    # DEFAULTS
-    #
+    # Clock
     clocks:
       colors:
         rows:
@@ -100,10 +112,10 @@ wtf:
         Austin: "America/Chicago"
         Los Angeles: "America/Los Angeles"
       position:
-        top: 2
-        left: 1
+        top: 3
+        left: 2
         height: 1
         width: 1
-      refreshInterval: 15
+      refreshInterval: 10
       # Valid options are: alphabetical, chronological
       sort: "chronological"
