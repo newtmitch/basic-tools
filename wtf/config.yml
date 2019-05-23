@@ -7,7 +7,7 @@ wtf:
       normal: gray
   grid:
     columns: [90, 30, 100]
-    rows: [14, 13, 13, 9]
+    rows: [16, 16, 16, 8]
   refreshInterval: 1
   mods:
     # GIT
@@ -45,7 +45,7 @@ wtf:
     github-platform:
       type: github
       title: "GH Platform"
-      apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
+      apiKey: "MY KEY HERE"
       baseURL: ""
       enabled: true
       enableStatus: true
@@ -62,7 +62,7 @@ wtf:
     github-services:
       type: github
       title: "GH Services"
-      apiKey: "e37afcdb9cb6651c6ec7f38366dada835f8e34fb"
+      apiKey: "MY KEY HERE"
       baseURL: ""
       enabled: true
       enableStatus: true
@@ -78,7 +78,7 @@ wtf:
       username: "newtmitch"
     # CircleCI
     circleci:
-      apiKey: "b1c34a555f5e363b5441618959269820df7e7a8d"
+      apiKey: "MY KEY HERE"
       enabled: true
       position:
         top: 2

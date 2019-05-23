@@ -21,6 +21,7 @@ fi
 
 # primary as of 2018-12-19
 ZSH_THEME="kennethreitz"
+# ZSH_THEME="spaceship"
 
 setopt autolist
 unsetopt menucomplete
@@ -62,12 +63,13 @@ unsetopt menucomplete
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=~/.config/oh-my-zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autocomplete)
 
 # User configuration
 
@@ -77,6 +79,7 @@ export NVM_DIR="$HOME/.nvm"
 alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' 
 # load a default node so we have something when we don't have nvm loaded
 export PATH="$PATH:/Users/mitch/.nvm/versions/node/v8.11.4/bin"
+alias setnpmbin=PATH='$PATH:$(npm config get prefix)/bin'
 
 # add yarn to the path - we install via the following command from the yarn website because
 # homebrew installs node as well, and that means we *have* to load nvm (slow!) in order not to use
