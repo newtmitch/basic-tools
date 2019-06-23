@@ -20,8 +20,17 @@ fi
 #ZSH_THEME="random"
 
 # primary as of 2018-12-19
-ZSH_THEME="kennethreitz"
+# ZSH_THEME="kennethreitz"
 # ZSH_THEME="spaceship"
+
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
+POWERLEVEL9K_SHORTEN_DELIMITER=".."
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 setopt autolist
 unsetopt menucomplete
@@ -172,6 +181,10 @@ elif type compctl &>/dev/null; then
   compctl -K _pm2_completion + -f + pm2
 fi
 ###-end-pm2-completion-###
+
+# rsm: aliases
+alias setminikubedocker='eval $(minikube docker-env)'
+alias unsetminikubedocker='eval "$(docker-machine env -u)"'
 
 # rsm: debug zsh load times
 # zprof
