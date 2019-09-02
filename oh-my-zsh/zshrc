@@ -78,9 +78,13 @@ ZSH_CUSTOM=~/.config/oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autocomplete)
+plugins=(git docker docker-compose doctl) 
 
 # User configuration
+
+# rsm: working
+# digital ocean / doctl
+# source $(doctl completion zsh)
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -88,6 +92,7 @@ export NVM_DIR="$HOME/.nvm"
 alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' 
 # load a default node so we have something when we don't have nvm loaded
 export PATH="$PATH:/Users/mitch/.nvm/versions/node/v8.11.4/bin"
+# export PATH="$PATH:/Users/mitch/.nvm/versions/node/v10.16.0/bin/node"
 alias setnpmbin=PATH='$PATH:$(npm config get prefix)/bin'
 
 # add yarn to the path - we install via the following command from the yarn website because
@@ -99,6 +104,10 @@ export PATH="$PATH:/Users/mitch/.rbenv/shims:/usr/sbin:/sbin:/Applications/Postg
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# rsm: working
+# bash-completion / bash_completion
+# source $(brew --prefix)/etc/bash_completion
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
