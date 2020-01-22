@@ -91,7 +91,7 @@ export NVM_DIR="$HOME/.nvm"
 # set up aliases for NVM so for the 99.9% of the time when we don't need nvm, our shell loads faster
 alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' 
 # load a default node so we have something when we don't have nvm loaded
-export PATH="$PATH:/Users/mitch/.nvm/versions/node/v8.11.4/bin"
+export PATH="$PATH:/Users/mitch/.nvm/versions/node/v8.16.2/bin"
 # export PATH="$PATH:/Users/mitch/.nvm/versions/node/v10.16.0/bin/node"
 alias setnpmbin=PATH='$PATH:$(npm config get prefix)/bin'
 
@@ -104,6 +104,12 @@ export PATH="$PATH:/Users/mitch/.rbenv/shims:/usr/sbin:/sbin:/Applications/Postg
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# rsm: zsh completion scripts installed via Homebrew
+# (per https://github.com/ahmetb/dotfiles/blob/7b9f8c95d2ecb0df31c59525967f6305ce95360e/.zshrc#L37-L41)
+fpath=("usr/local/share/zsh/site-functions" $fpath)
+# Reload the zsh-completions
+autoload -U compinit && compinit
 
 # rsm: working
 # bash-completion / bash_completion
@@ -137,6 +143,7 @@ alias bfg="java -jar /Users/mitch/Dev/basic-tools/bfg-1.12.14.jar"
 alias vi='nvim'
 alias vim='nvim'
 alias tmux-platform-suited='. ~/.config/tmux-platform-suited'
+alias tmux-docker-swarm='. ~/.config/tmux-docker-swarm'
 
 # thefuck
 eval "$(thefuck --alias)"
