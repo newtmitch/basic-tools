@@ -57,9 +57,24 @@ SendMode Input
 ;F19::Run https://facebook.com
 
 ; rsm additions for cmd+arrow keys instead of home/end in windows
-#Left::SendInput {Home}
-#Right::SendInput {End}
+#Left::Send {Home}
+#Right::Send {End}
++#Left::Send +{Home}
++#Right::Send +{End}
 !BS::Send ^{BS}
+;+#p::Send {LCtrl LShift}P
+
+; rsm: for VS Code specifically
+#p::Send ^p
+#+p::Send ^+p
+#/::Send ^/
+#+k::Send ^+k
+#g::Send ^g
+!Left::Send ^{Left}
+!Right::Send ^{Right}
+#h::WinMinimize,a
+#w::Send ^{F4}
+
 
 ; --------------------------------------------------------------
 ; OS X system shortcuts
@@ -95,8 +110,9 @@ SendMode Input
 ; New tab
 #t::Send ^t
 
+; rsm: replacing for VSCode use and sending ctrl+F4 instead
 ; close tab
-#w::Send ^w
+; #w::Send ^w
 
 ; Close windows (cmd + q to Alt + F4)
 #q::Send !{F4}

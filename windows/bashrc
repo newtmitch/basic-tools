@@ -30,9 +30,11 @@ function gdv() { # mine doesn't add -w
 function gdcv() { # my own
   git diff --cached $@ | vim -R -
 }
+alias gaa="git add --all"
 alias gc="git commit -v"
 alias gc!="git commit -v --amend"
 alias gca="git commit -v -a"
+alias gcam="git commit -a -m"
 alias gca!="git commit -v -a --amend"
 alias gcmsg="git commit -m"
 alias gco="git checkout"
