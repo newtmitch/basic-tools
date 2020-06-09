@@ -2,6 +2,9 @@
 ; Mac keyboard to Windows Key Mappings
 ;=========================================
 
+; AutoHotKey configuration for mitch on windows so it feels more like a Mac
+; https://www.autohotkey.com/
+
 ; --------------------------------------------------------------
 ; NOTES
 ; --------------------------------------------------------------
@@ -63,6 +66,12 @@ SendMode Input
 +#Right::Send +{End}
 !BS::Send ^{BS}
 ;+#p::Send {LCtrl LShift}P
+
+; rsm control arrow keys to end of line instead of end
+^Right::Send {End}
++^Right::Send +{End}
+^Left::Send {Home}
++^Left::Send +{Home}
 
 ; rsm: for VS Code specifically
 #p::Send ^p
@@ -129,52 +138,52 @@ Lwin & Tab::AltTab
 ; --------------------------------------------------------------
 
 ; Map Alt + L to @
-!l::SendInput {@}
+; !l::SendInput {@}
 
 ; Map Alt + N to \
-+!7::SendInput {\}
+; +!7::SendInput {\}
 
 ; Map Alt + N to ©
-!g::SendInput {©}
+; !g::SendInput {©}
 
 ; Map Alt + o to ø
-!o::SendInput {ø}
+; !o::SendInput {ø}
 
 ; Map Alt + 5 to [
-!5::SendInput {[}
+; !5::SendInput {[}
 
 ; Map Alt + 6 to ]
-!6::SendInput {]}
+; !6::SendInput {]}
 
 ; Map Alt + E to €
-!e::SendInput {€}
+; !e::SendInput {€}
 
 ; Map Alt + - to –
-!-::SendInput {–}
+; !-::SendInput {–}
 
 ; Map Alt + 8 to {
-!8::SendInput {{}
+; !8::SendInput {{}
 
 ; Map Alt + 9 to }
-!9::SendInput {}}
+; !9::SendInput {}}
 
 ; Map Alt + - to ±
-!+::SendInput {±}
+; !+::SendInput {±}
 
 ; Map Alt + R to ®
-!r::SendInput {®}
+; !r::SendInput {®}
 
 ; Map Alt + N to |
-!7::SendInput {|}
+; !7::SendInput {|}
 
 ; Map Alt + W to ∑
-!w::SendInput {∑}
+; !w::SendInput {∑}
 
 ; Map Alt + N to ~
-!n::SendInput {~}
+; !n::SendInput {~}
 
 ; Map Alt + 3 to #
-!3::SendInput {#}
+; !3::SendInput {#}
 
 
 
