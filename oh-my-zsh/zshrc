@@ -25,15 +25,20 @@ fi
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs kubecontext)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
-POWERLEVEL9K_SHORTEN_DELIMITER=".."
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
+#POWERLEVEL9K_SHORTEN_DELIMITER=".."
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+#POWERLEVEL9K_SHORTEN_DELIMETER=""
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 
 setopt autolist
 unsetopt menucomplete
+# export EDITOR='subl'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -147,6 +152,12 @@ alias vi='nvim'
 alias vim='nvim'
 alias tmux-platform-suited='. ~/.config/tmux-platform-suited'
 alias tmux-docker-swarm='. ~/.config/tmux-docker-swarm'
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias h='history'
 
 # thefuck
 eval "$(thefuck --alias)"
