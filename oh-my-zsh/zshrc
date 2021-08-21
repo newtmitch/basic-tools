@@ -38,6 +38,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
 
 setopt autolist
 unsetopt menucomplete
+
 # export EDITOR='subl'
 
 # Uncomment the following line to use case-sensitive completion.
@@ -91,15 +92,12 @@ plugins=(git docker docker-compose doctl virtualenv)
 # digital ocean / doctl
 # source $(doctl completion zsh)
 
-# pipenv completion
-eval "$(pipenv --completion)"
-
 # NVM
 export NVM_DIR="$HOME/.nvm"
 # set up aliases for NVM so for the 99.9% of the time when we don't need nvm, our shell loads faster
 alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' 
 # load a default node so we have something when we don't have nvm loaded
-export PATH="$PATH:/Users/mitch/.nvm/versions/node/v12.14.1/bin"
+export PATH="$PATH:/Users/mitch/.nvm/versions/node/v12.22.1/bin"
 # export PATH="$PATH:/Users/mitch/.nvm/versions/node/v10.16.0/bin/node"
 # alias setnpmbin=PATH='$PATH:$(npm config get prefix)/bin'
 
@@ -118,6 +116,9 @@ source $ZSH/oh-my-zsh.sh
 fpath=("usr/local/share/zsh/site-functions" $fpath)
 # Reload the zsh-completions
 autoload -U compinit && compinit
+
+# pipenv completion
+eval "$(pipenv --completion)"
 
 # rsm: working
 # bash-completion / bash_completion
@@ -147,7 +148,7 @@ autoload -U compinit && compinit
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias bfg="java -jar /Users/mitch/Dev/basic-tools/bfg-1.12.14.jar"
+alias bfg="java -jar /Users/mitch/Dev/mitch-stuff/basic-tools/bfg-1.14.0.jar"
 alias vi='nvim'
 alias vim='nvim'
 alias tmux-platform-suited='. ~/.config/tmux-platform-suited'
@@ -158,6 +159,8 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 alias h='history'
+alias cf='codefresh'
+alias argo='argocd'
 
 # thefuck
 eval "$(thefuck --alias)"
@@ -219,4 +222,27 @@ alias unsetminikubedocker='eval "$(docker-machine env -u)"'
 # rsm: debug zsh load times
 # zprof
 
+# flutter
+export PATH="$PATH:$HOME/dev/flutter/bin"
+
+###-begin-codefresh-completions-###
+#
+# codefresh command completion script
+#
+# Installation: codefresh completion zsh >> ~/.zshrc
+#
+_codefresh_completions()
+{
+    type_list=($(codefresh --impl-zsh-file-dir --get-yargs-completions "${words[@]}"))
+
+    if [[ ${type_list[1]} == '__files_completion__' ]]; then
+        compadd -- "${type_list[@]:1}"
+    else
+        compadd -- "${type_list[@]}"
+    fi
+
+    return 0
+}
+compdef _codefresh_completions codefresh
+###-end-codefresh-completions-###
 
