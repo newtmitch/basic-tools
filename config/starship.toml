@@ -1,0 +1,39 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+symbol = " "
+
+
+# nerd font symbols
+# https://starship.rs/presets/#nerd-font-symbols
+[git_branch]
+symbol = " "
+format = '\[[$symbol$branch]($style)\]'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[memory_usage]
+symbol = " "
+
+[python]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
+[gcloud]
+disabled = true
+
+[dotnet]
+disabled = true
