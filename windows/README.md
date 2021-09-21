@@ -1,1 +1,0 @@
-This is for use with (AutoHotKey)[https://www.autohotkey.com/] and makes some of the Mac-specific keyboard items available on windows. Specifically for development and text navigation, cmd+arrows and alt+backspace are important. Also cmd+s, cmd+z, and cmd+y (undo) are good too.
