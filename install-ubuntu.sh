@@ -6,20 +6,24 @@
 #
 #   sh -c "$(wget -qO- https://raw.githubusercontent.com/newtmitch/basic-tools/main/install-ubuntu.sh)"
 #
+#   or with curl:
+#
+#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/newtmitch/basic-tools/main/install-ubuntu.sh)"
 #######
+
+# uncomment the following to create a user if you need to do that. The rest of this script
+# assumes running sudo and that you already have capability for that ready to go
+# or not in sudo - you're already root
+# apt update && \
+# 	apt install -y sudo && \
+# 	useradd -m mitch && \
+# 	echo -e "mitch\nmitch" | passwd mitch && \
+# 	adduser mitch sudo
 
 # basic stuff
 sudo apt update && \
 	sudo apt upgrade -y && \
 	sudo apt install -y build-essential neovim curl zsh git tmux wget ruby-dev sudo rsync
-
-# or not in sudo - you're already root
-apt update && \
-	apt upgrade -y && \
-	apt install -y build-essential neovim curl zsh git tmux wget ruby-dev sudo rsync && \
-	useradd -m mitch && \
-	echo -e "mitch\nmitch" | passwd mitch && \
-	adduser mitch sudo
 
 # lsd
 curl -L -O \
