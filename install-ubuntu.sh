@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#######
+# 
+# download and execute this script directly with this url:
+#
+#   sh -c "$(wget -qO- https://raw.githubusercontent.com/newtmitch/basic-tools/main/install-ubuntu.sh)"
+#
+#######
+
 # basic stuff
 sudo apt update && \
 	sudo apt upgrade -y && \
@@ -20,14 +28,12 @@ curl -L -O \
 
 # oh-my-zsh
 sh -c \
-	"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-	--unattended
+	"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -- --unattended
 
 # be sure to update the ZSH_HOME setting in the .zshrc file you finally put in place
 
 # starship and fonts (from https://www.nerdfonts.com/font-downloads)
-curl -fsSL -o /tmp/starshipinstall.sh "https://starship.rs/install.sh" && \
-	chmod a+x /tmp/starshipinstall.sh && sh /tmp/starshipinstall.sh --yes && \
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force
 	mkdir -p ~/.fonts && cd ~/.fonts && \
 	curl -L -O \
 		https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip && \
