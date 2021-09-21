@@ -1,0 +1,22 @@
+# /Users/mitch/.config/tmuxinator/stonker.yml
+
+name: buzzword
+root: ~/Dev/mitch-stuff/buzzword-bingo
+
+windows:
+  - code:
+      root: ~/Dev/mitch-stuff/buzzword-bingo
+      layout: main-horizontal
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - cd server
+        - cd client
+        -
+  - git:
+      root: ~/Dev/mitch-stuff/buzzword-bingo
+  - docker-tilt: 
+  # - k9s: k9s
+  # - kube:
+  #     root: ~/Dev/mitch-stuff/stonker/kube

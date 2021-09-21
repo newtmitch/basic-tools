@@ -1,0 +1,21 @@
+# /Users/mitch/.config/tmuxinator/stonker.yml
+
+name: unity
+root: ~/Dev/unity
+
+windows:
+  - udemy:
+      root: ~/Dev/unity/udemy-rpg-courses
+      layout: main-horizontal
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        -
+        -
+  - mitch:
+      root: ~/Dev/unity/mitch-unity
+      layout: main-horizontal
+      panes:
+        -
+        -

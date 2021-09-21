@@ -1,7 +1,7 @@
 # /Users/mitch/.config/tmuxinator/stonker.yml
 
 name: stonker
-root: ~/Dev/mitch-stuff/stonker
+root: ~/Dev/mitch-stuff/stonker-platform
 
 # Optional tmux socket
 # socket_name: foo
@@ -40,17 +40,19 @@ root: ~/Dev/mitch-stuff/stonker
 # attach: false
 
 windows:
-  - webapp:
-      root: ~/Dev/mitch-stuff/stonker/web-app
+  - code:
+      root: ~/Dev/mitch-stuff/stonker-platform
       layout: main-horizontal
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - cd server && yarn start
-        - cd client && yarn start
+        - 
+        - 
         -
-  - tilt: tilt up stonker-mongo stonker-redis
-  - k9s: k9s
-  - kube:
-      root: ~/Dev/mitch-stuff/stonker/kube
+  - git:
+      root: ~/Dev/mitch-stuff/stonker-platform
+  - tilt: 
+  # - k9s: k9s
+  # - kube:
+  #     root: ~/Dev/mitch-stuff/stonker/kube
