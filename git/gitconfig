@@ -3,8 +3,9 @@
 	email = mitch@threeweekhobby.com
 [mergetool]
 	keepBackup = true
-[credential]
-	helper = osxkeychain
+# uncomment for macos
+# [credential]
+	# helper = osxkeychain
 [alias]
     graph = !"git log --graph --pretty=oneline --abbrev-commit"
     graphfile = !"git log --graph --pretty=oneline --abbrev-commit --stat"
