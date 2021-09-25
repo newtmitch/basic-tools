@@ -75,3 +75,7 @@ sudo apt install gh
 
 # then login to github (optional)
 # gh auth login
+
+# change shell to zsh
+chsh -s /usr/bin/zsh
+
