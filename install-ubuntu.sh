@@ -57,8 +57,7 @@ cd ~ && \
 	rsync -ah ~/code/basic-tools/dotfiles/config/* ~/.config && \
 	cp ~/code/basic-tools/dotfiles/zshrc ~/.zshrc && \
 	cp ~/code/basic-tools/dotfiles/tmux.conf ~/.tmux.conf && \
-	git config --global user.email "mitch@threeweekhobby.com" && \
-	git config --global user.name "Ryan Mitchell" && \
+	cp ~/code/basic-tools/git/gitconfig ~/.gitconfig
 	source ~/.zshrc
 
 # tmuxinator
