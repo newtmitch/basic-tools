@@ -23,7 +23,7 @@
 # basic stuff
 sudo apt update && \
 	sudo apt upgrade -y && \
-	sudo apt install -y build-essential neovim curl zsh git tmux wget ruby-dev sudo rsync unzip
+	sudo apt install -y build-essential neovim curl zsh git git-lfs tmux wget ruby-dev sudo rsync unzip
 
 # lsd
 curl -L -O \
