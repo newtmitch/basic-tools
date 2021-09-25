@@ -4,6 +4,8 @@ To install this stack on a Windows/WSL2-based Ubuntu VM, there are a few extra m
 
 * Copy the fonts in an explorer window from `\\wsl$\Ubuntu\home\mitch\.fonts` (change home directory as needed) to a local directory on the desktop, right click all those fonts, and select `Install`. I suggest filtering for the "Windows compatible" versions and installing all those to get the full set. Then you can change the font for the given VM in Windows Terminal.
 * You might want to also update the starting location for the Ubuntu shell in the Windows Terminal preferences.
+* If you need to quickly get to the WSL Ubuntu home, you can go to `\\wsl$\Ubuntu\home\mitch` in an explorer window. Or from the Ubuntu terminal, type `explorer.exe .` to open a new explorer window at that location.
+
 
 # Windows on Parallels
 
