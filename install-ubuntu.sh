@@ -28,7 +28,8 @@ sudo apt update && \
 # lsd
 curl -L -O \
 	https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb && \
-	sudo dpkg -i lsd_0.20.1_amd64.deb
+	sudo dpkg -i lsd_0.20.1_amd64.deb && \
+	rm lsd_0.20.1_amd64.deb
 
 # oh-my-zsh
 sh -c \
@@ -45,15 +46,17 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force
 	rm JetBrainsMono.zip && cd ~
 
 # set up existing configs
-mkdir -p ~/code && \
-	cd ~/code && \
-	git clone https://github.com/newtmitch/basic-tools.git && \
-	cd basic-tools && \
+if [ ! -d ~/code/basic-tools ]
+then
+	mkdir -p ~/code && \
+		cd ~/code && \
+		git clone https://github.com/newtmitch/basic-tools.git
+fi
+cd ~ && \
 	mkdir -p ~/.config && \
 	rsync -ah ~/code/basic-tools/dotfiles/config/* ~/.config && \
 	cp ~/code/basic-tools/dotfiles/zshrc ~/.zshrc && \
 	cp ~/code/basic-tools/dotfiles/tmux.conf ~/.tmux.conf && \
-	cd ~ && \
 	git config --global user.email "mitch@threeweekhobby.com" && \
 	git config --global user.name "Ryan Mitchell" && \
 	source ~/.zshrc
