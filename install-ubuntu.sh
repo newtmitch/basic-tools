@@ -39,38 +39,39 @@ sh -c \
 
 # starship and fonts (from https://www.nerdfonts.com/font-downloads)
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force
-	mkdir -p ~/.fonts && cd ~/.fonts && \
-	curl -L -O \
-		https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip && \
-	unzip -o JetBrainsMono.zip && \
-	rm JetBrainsMono.zip && cd ~
+mkdir -p ~/.fonts 
+cd ~/.fonts
+curl -L -O \
+	https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+unzip -o JetBrainsMono.zip
+rm JetBrainsMono.zip && cd ~
 
 # set up existing configs
 if [ ! -d ~/code/basic-tools ]
 then
-	mkdir -p ~/code && \
-		cd ~/code && \
-		git clone https://github.com/newtmitch/basic-tools.git
+	mkdir -p ~/code
+	cd ~/code
+	git clone https://github.com/newtmitch/basic-tools.git
 fi
-cd ~ && \
-	mkdir -p ~/.config && \
-	rsync -ah ~/code/basic-tools/dotfiles/config/* ~/.config && \
-	cp ~/code/basic-tools/dotfiles/zshrc ~/.zshrc && \
-	cp ~/code/basic-tools/dotfiles/tmux.conf ~/.tmux.conf && \
-	cp ~/code/basic-tools/git/gitconfig ~/.gitconfig
-	source ~/.zshrc
+cd ~
+mkdir -p ~/.config
+rsync -ah ~/code/basic-tools/dotfiles/config/* ~/.config
+cp ~/code/basic-tools/dotfiles/zshrc ~/.zshrc
+cp ~/code/basic-tools/dotfiles/tmux.conf ~/.tmux.conf
+cp ~/code/basic-tools/git/gitconfig ~/.gitconfig
+source ~/.zshrc
 
 # tmuxinator
-sudo gem install tmuxinator && \
-	sudo wget \
+sudo gem install tmuxinator
+sudo wget \
 	https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh \
 	-O /usr/local/share/zsh/site-functions/_tmuxinator
 
 # github command line for authentication
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg && \
-	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
-	sudo apt update && \
-	sudo apt install gh
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh
 
 # then login to github (optional)
 # gh auth login
