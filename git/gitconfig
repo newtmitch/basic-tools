@@ -1,6 +1,6 @@
 [user]
-	name = Ryan Mitchell
-	email = mitch@threeweekhobby.com
+#	name = Ryan Mitchell
+#	email = mitch@threeweekhobby.com
 [mergetool]
 	keepBackup = true
 # uncomment for macos
