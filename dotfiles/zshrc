@@ -88,14 +88,14 @@ alias lt='ls --tree'
 alias h='history'
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mitch/Dev/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mitch/Dev/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/mitch/Dev/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mitch/Dev/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc'; fi
 
-# rsm: aliases
-alias setminikubedocker='eval $(minikube docker-env)'
-alias unsetminikubedocker='eval "$(docker-machine env -u)"'
+# rsm: minikube aliases
+# alias setminikubedocker='eval $(minikube docker-env)'
+# alias unsetminikubedocker='eval "$(docker-machine env -u)"'
 
 # rsm: debug zsh load times
 # zprof
