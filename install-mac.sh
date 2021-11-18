@@ -24,7 +24,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install: lsd, wget, nvim, and github cli
-brew install lsd wget neovim gh
+brew install --force lsd wget neovim gh
 
 # oh-my-zsh
 sh -c \
