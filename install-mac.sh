@@ -23,23 +23,18 @@
 # mac-specific
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# install: lsd, wget, nvim, and github cli
-brew install --force lsd wget neovim gh
-
 # oh-my-zsh
 sh -c \
 	"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -- --unattended
+
+# install: lsd, wget, nvim, and github cli
+brew install --force lsd wget neovim gh pyenv tmux tmuxinator
 
 # basic stuff
 #sudo apt update && \
 #	sudo apt upgrade -y && \
 #	sudo apt install -y build-essential neovim curl zsh git git-lfs tmux wget ruby-dev sudo rsync unzip
 
-# lsd
-#curl -L -O \
-#	https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb && \
-#	sudo dpkg -i lsd_0.20.1_amd64.deb && \
-#	rm lsd_0.20.1_amd64.deb
 
 
 # be sure to update the ZSH_HOME setting in the .zshrc file you finally put in place
@@ -63,13 +58,16 @@ fi
 cd ~
 mkdir -p ~/.config
 rsync -ah ~/code/basic-tools/dotfiles/config/* ~/.config
-cp ~/code/basic-tools/dotfiles/zshrc ~/.zshrc
+cp ~/code/basic-tools/dotfiles/zshrc.mac ~/.zshrc
 cp ~/code/basic-tools/dotfiles/tmux.conf ~/.tmux.conf
 cp ~/code/basic-tools/dev-project-starter-files/git/gitconfig ~/.gitconfig
 source ~/.zshrc
 
 # then login to github (optional)
 # gh auth login
+
+# install python 3
+pyenv install 3.9.7
 
 # change shell to zsh
 chsh -s /usr/bin/zsh
