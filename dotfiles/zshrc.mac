@@ -166,9 +166,6 @@ alias h='history'
 alias cf='codefresh'
 alias argo='argocd'
 
-# thefuck
-eval "$(thefuck --alias)"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.platformio/penv/bin"
 

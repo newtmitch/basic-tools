@@ -36,7 +36,6 @@ brew install --force lsd wget neovim gh pyenv tmux tmuxinator
 #	sudo apt install -y build-essential neovim curl zsh git git-lfs tmux wget ruby-dev sudo rsync unzip
 
 
-
 # be sure to update the ZSH_HOME setting in the .zshrc file you finally put in place
 
 # starship and fonts (from https://www.nerdfonts.com/font-downloads)
@@ -66,7 +65,9 @@ source ~/.zshrc
 # then login to github (optional)
 # gh auth login
 
-# install python 3
+# pyenv setup
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 pyenv install 3.9.7
 
 # change shell to zsh
