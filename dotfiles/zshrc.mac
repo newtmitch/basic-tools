@@ -96,13 +96,21 @@ plugins=(git docker docker-compose doctl virtualenv)
 # digital ocean / doctl
 # source $(doctl completion zsh)
 
+#
 # NVM
+#
 export NVM_DIR="$HOME/.nvm"
-# set up aliases for NVM so for the 99.9% of the time when we don't need nvm, our shell loads faster
-alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
+
+# the next two lines load nvm. if you want to not do this and only load nvm on demand, comment these out
+# and uncomment the next set of lines that puts that in an alias so you can run it on-demand and also sets
+# a default node version from nvm so there's something there no matter what.
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# set up aliases for NVM so for most of the time when we don't need nvm, our shell loads faster
+# alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
 # load a default node so we have something when we don't have nvm loaded
 export PATH="$PATH:/Users/mitch/.nvm/versions/node/v12.22.1/bin"
-# export PATH="$PATH:/Users/mitch/.nvm/versions/node/v10.16.0/bin/node"
 # alias setnpmbin=PATH='$PATH:$(npm config get prefix)/bin'
 
 # add yarn to the path - we install via the following command from the yarn website because
@@ -155,8 +163,6 @@ eval "$(pipenv --completion)"
 alias bfg="java -jar /Users/mitch/Dev/mitch-stuff/basic-tools/bfg-1.14.0.jar"
 alias vi='nvim'
 alias vim='nvim'
-alias tmux-platform-suited='. ~/.config/tmux-platform-suited'
-alias tmux-docker-swarm='. ~/.config/tmux-docker-swarm'
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
@@ -165,6 +171,9 @@ alias lt='ls --tree'
 alias h='history'
 alias cf='codefresh'
 alias argo='argocd'
+
+# thefuck
+eval "$(thefuck --alias)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.platformio/penv/bin"
