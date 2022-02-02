@@ -7,7 +7,8 @@ if [ -f /etc/profile ]; then
 fi
 
 # rsm: debug zsh load times
-# zmodload zsh/zprof
+zmodload zsh/zprof
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -88,7 +89,9 @@ ZSH_CUSTOM=~/.config/oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose doctl virtualenv)
+# removed plugins for speed and based on how often they're used. Add them back in if needed
+#   doctl virtualenv docker-compose
+plugins=(git docker)
 
 # User configuration
 
@@ -99,13 +102,13 @@ plugins=(git docker docker-compose doctl virtualenv)
 #
 # NVM
 #
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 
 # the next two lines load nvm. if you want to not do this and only load nvm on demand, comment these out
 # and uncomment the next set of lines that puts that in an alias so you can run it on-demand and also sets
 # a default node version from nvm so there's something there no matter what.
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # set up aliases for NVM so for most of the time when we don't need nvm, our shell loads faster
 # alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
@@ -127,10 +130,11 @@ source $ZSH/oh-my-zsh.sh
 # (per https://github.com/ahmetb/dotfiles/blob/7b9f8c95d2ecb0df31c59525967f6305ce95360e/.zshrc#L37-L41)
 fpath=("usr/local/share/zsh/site-functions" $fpath)
 # Reload the zsh-completions
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
+# rsm: took this out 2022-02-01 because it really slows down shell startup time
 # pipenv completion
-eval "$(pipenv --completion)"
+# eval "$(pipenv --completion)"
 
 # rsm: working
 # bash-completion / bash_completion
@@ -173,7 +177,7 @@ alias cf='codefresh'
 alias argo='argocd'
 
 # thefuck
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.platformio/penv/bin"
@@ -185,52 +189,10 @@ if [ -f '/Users/mitch/Dev/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc'; fi
 
-###-begin-pm2-completion-###
-### credits to npm for the completion file model
-#
-# Installation: pm2 completion >> ~/.bashrc  (or ~/.zshrc)
-#
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if type complete &>/dev/null; then
-  _pm2_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           pm2 completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -o default -F _pm2_completion pm2
-elif type compctl &>/dev/null; then
-  _pm2_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       pm2 completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _pm2_completion + -f + pm2
-fi
-###-end-pm2-completion-###
 
 # rsm: aliases
 alias setminikubedocker='eval $(minikube docker-env)'
 alias unsetminikubedocker='eval "$(docker-machine env -u)"'
-
-# rsm: debug zsh load times
-# zprof
 
 # flutter
 export PATH="$PATH:$HOME/dev/flutter/bin"
@@ -238,23 +200,24 @@ export PATH="$PATH:$HOME/dev/flutter/bin"
 # starship
 eval "$(starship init zsh)"
 
-###-begin-codefresh-completions-###
-#
-# codefresh command completion script
-#
-# Installation: codefresh completion zsh >> ~/.zshrc
-#
-_codefresh_completions()
-{
-    type_list=($(codefresh --impl-zsh-file-dir --get-yargs-completions "${words[@]}"))
 
-    if [[ ${type_list[1]} == '__files_completion__' ]]; then
-        compadd -- "${type_list[@]:1}"
-    else
-        compadd -- "${type_list[@]}"
+##### nvm (node version manager) #####
+# placeholder nvm shell function
+# On first use, it will set nvm up properly which will replace the `nvm`
+# shell function with the real one
+nvm() {
+  if [[ -d "$HOME/.nvm" ]]; then
+    NVM_DIR="$HOME/.nvm"
+    export NVM_DIR
+    # shellcheck disable=SC1090
+    source "${NVM_DIR}/nvm.sh"
+    if [[ -e ~/.nvm/alias/default ]]; then
+      PATH="${PATH}:${HOME}/.nvm/versions/node/$(cat ~/.nvm/alias/default)/bin"
     fi
-
-    return 0
+    # invoke the real nvm function now
+    nvm "$@"
+  else
+    echo "nvm is not installed" >&2
+    return 1
+  fi
 }
-compdef _codefresh_completions codefresh
-###-end-codefresh-completions-###
