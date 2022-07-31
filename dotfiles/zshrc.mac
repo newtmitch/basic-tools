@@ -188,6 +188,7 @@ alias lt='ls --tree'
 alias h='history'
 alias cf='codefresh'
 alias argo='argocd'
+alias lg='lazygit'
 
 # thefuck
 # eval "$(thefuck --alias)"
