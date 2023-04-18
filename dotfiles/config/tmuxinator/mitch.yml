@@ -1,6 +1,6 @@
-# /Users/mitch/.config/tmuxinator/stonker.yml
+# /Users/mitch/.config/tmuxinator/mitch.yml
 
-name: buzzword
+name: mitch
 root: ~/Dev/mitch-stuff/buzzword-bingo
 
 windows:

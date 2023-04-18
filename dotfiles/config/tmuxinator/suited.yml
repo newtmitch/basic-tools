@@ -1,6 +1,6 @@
 # /Users/mitch/.config/tmuxinator/suited.yml
 
-name: suited
+name: suited2
 root: ~/Dev/titanhire
 
 # Optional tmux socket
@@ -45,21 +45,60 @@ windows:
       layout: main-horizontal
       # name: k9s
       panes:
-        -
-        -
+        - k9s:
+          - printf '\033]2;%s\033\\' 'k9s'
+          - clear
+        - whatever:
+          - printf '\033]2;%s\033\\' 'devops shell 1'
+          - clear
   - deploy:
       root: ~/Dev/titanhire/suited-deploy
+      panes:
+        - shell:
+          - printf '\033]2;%s\033\\' 'deploy'
+          - clear
   - svc:
       root: ~/Dev/titanhire/suited-services
+      panes:
+        - shell:
+          - printf '\033]2;%s\033\\' 'services'
+          - clear
   - webapp:
       root: ~/Dev/titanhire/titanhire-platform
-      layout: tiled-horizontal
+      layout: tiled
       panes:
-        - cd client/candidate
-        - cd client/recruiter
-        - cd client/admin
-        - 
-        - cd server
+        - candidate:
+          - printf '\033]2;%s\033\\' 'Candidate'
+          - cd client/apps/candidate
+          - clear
+        - recruiter:
+          - printf '\033]2;%s\033\\' 'recruiter'
+          - cd client/apps/recruiter
+          - clear
+        - admin:
+          - printf '\033]2;%s\033\\' 'admin'
+          - cd client/apps/admin
+          - clear
+        - extra:
+          - printf '\033]2;%s\033\\' 'extra whatever'
+          - clear
+        - server:
+          - printf '\033]2;%s\033\\' 'server'
+          - cd server
+          - clear
   - techdocs:
       root: ~/Dev/titanhire/suited-tech-docs
+      panes:
+        - docs:
+          - printf '\033]2;%s\033\\' 'Tech docs'
+          - clear
+  - eng-utils:
+      root: ~/Dev/titanhire/suited-eng-utils
+      panes:
+        - utils:
+          - printf '\033]2;%s\033\\' 'Eng Utils'
+          - clear
+  - weather:
+    - printf '\033]2;%s\033\\' 'Weather'
+    - weatherpane
 

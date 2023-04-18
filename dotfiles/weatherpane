@@ -1,0 +1,11 @@
+#!/bin/bash
+
+weatherloop=1
+
+while [ "$weatherloop" == 1 ]; do
+  clear
+  bkt --ttl=1d --stale=15m --discard-failures -- curl --silent wttr.in
+  sleep 900
+  echo "Refreshing weather..."
+done
+

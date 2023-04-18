@@ -28,7 +28,7 @@ sh -c \
 	"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -- --unattended
 
 # install: lsd, wget, nvim, and github cli
-brew install --force lsd wget neovim gh pyenv tmux tmuxinator
+brew install --force lsd wget neovim gh pyenv tmux tmuxinator bkt
 
 # basic stuff
 #sudo apt update && \
