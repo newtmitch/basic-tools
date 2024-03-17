@@ -20,10 +20,25 @@
 # 	echo -e "mitch\nmitch" | passwd mitch && \
 # 	adduser mitch sudo
 
+apt update && apt install sudo
+
 # basic stuff
 sudo apt update && \
 	sudo apt upgrade -y && \
-	sudo apt install -y build-essential neovim curl zsh git git-lfs tmux wget ruby-dev sudo rsync unzip
+	sudo apt install -y build-essential curl zsh git git-lfs tmux wget ruby-dev sudo rsync unzip
+
+# install a recent version of node to support various neovim LSP setups
+cd ~
+curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install -y nodejs
+
+# latest neovim for latest juicy features
+sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+git clone https://github.com/neovim/neovim && cd neovim && git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+cd ~
 
 # lsd
 curl -L -O \
@@ -78,4 +93,5 @@ sudo apt install gh
 
 # change shell to zsh
 chsh -s /usr/bin/zsh
+
 
