@@ -33,6 +33,9 @@ curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt install -y nodejs
 
+# install other neovim stuff for my own configuration (possibly move this to my neovimrc repo)
+sudo apt install -y ripgrep
+
 # latest neovim for latest juicy features
 sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
 git clone https://github.com/neovim/neovim && cd neovim && git checkout stable
