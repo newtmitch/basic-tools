@@ -70,9 +70,9 @@ rm -rf ~/.config/nvim
 # install neovim kickstarter for now
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
-# install powerlevel10k - we have to source the zshrc file to get the ZSH_CUSTOM variable
-source ~/.zshrc
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+# install powerlevel10k - we have to hardcode the custom directory otherwise it won't be installed to the right location
+ZSH_CUSTOM=~/.config/oh-my-zsh && \
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 # tmuxinator
 sudo gem install tmuxinator
