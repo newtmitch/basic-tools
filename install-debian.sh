@@ -41,10 +41,7 @@ nvm install 22
 corepack enable yarn
 
 # lsd
-curl -L -O \
-	https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb && \
-	sudo dpkg -i lsd_0.20.1_amd64.deb && \
-	rm lsd_0.20.1_amd64.deb
+sudo apt install lsd
 
 # oh-my-zsh
 zsh -c \
@@ -65,12 +62,17 @@ rm JetBrainsMono.zip && cd ~
 mkdir -p ~/code
 cd ~/code
 git clone https://github.com/newtmitch/dotfiles.git
-git clone https://github.com/newtmitch/vimrc.git
 cd ~
 mkdir -p ~/.config
 rsync -ah ~/code/dotfiles/ ~
-rm -rf ~/.config/nvim  # just in case it's not clean
-rsync -ah ~/code/vimrc/ ~/.config/nvim
+# clean just in case
+rm -rf ~/.config/nvim  
+# install neovim kickstarter for now
+git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
+# install powerlevel10k - we have to source the zshrc file to get the ZSH_CUSTOM variable
+source ~/.zshrc
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 # tmuxinator
 sudo gem install tmuxinator
@@ -86,5 +88,4 @@ sudo apt install gh
 
 # change shell to zsh
 chsh -s /usr/bin/zsh
-
 
